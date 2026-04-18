@@ -1,0 +1,28 @@
+def validar_password(password):  
+
+    tiene_mayuscula = False  
+    tiene_numero = False 
+    tiene_especial = False 
+
+    for caracter in password:  
+        if caracter.isupper():  # Verifica mayúscula
+            tiene_mayuscula = True  
+
+        if caracter.isdigit():  # Verifica número
+            tiene_numero = True  
+
+        if caracter in "!@#$%":  # Verifica  carácter
+            tiene_especial = True  
+
+    if len(password) >= 8 and tiene_mayuscula and tiene_numero and tiene_especial:
+        return True  # si cumple
+
+    return False  #falla
+
+# Programa principal
+if __name__ == "__main__":
+    password = input("Ingrese una contraseña: ")  
+    if validar_password(password):  
+        print("Contraseña válida.")  # Si es válida
+    else:
+        print("Contraseña inválida") 
